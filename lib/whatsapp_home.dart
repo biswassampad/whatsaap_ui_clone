@@ -5,6 +5,9 @@ import 'package:flutter_whatsapp_clone_ui/pages/status_screen.dart';
 import 'package:flutter_whatsapp_clone_ui/pages/call_screen.dart';
 
 class WhatsappHome extends StatefulWidget{
+  var cameras;
+  WhatsappHome(this.cameras);
+   
   @override
   _WhatsappHomeState createState()=>new _WhatsappHomeState();
 }
@@ -43,7 +46,7 @@ class _WhatsappHomeState extends State<WhatsappHome>  with SingleTickerProviderS
       body:new TabBarView(
         controller:_tabController,
         children:<Widget>[
-          new CameraScreen(),
+          new CameraScreen(widget.cameras),
           new ChatScreen(),
           new StatusScreen(),
           new CallScreen(),

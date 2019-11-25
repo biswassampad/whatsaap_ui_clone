@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_whatsapp_clone_ui/whatsapp_home.dart';
+import 'package:camera/camera.dart';
 
-void main()=>runApp(new MyApp());
+List<CameraDescription> cameras;
+
+Future<Null>main() async{
+  cameras = await availableCameras();
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget{
   @override
@@ -13,7 +19,7 @@ class MyApp extends StatelessWidget{
         accentColor:new Color(0xff25D366)
       ),
       debugShowCheckedModeBanner: false,
-      home:new WhatsappHome(),
+      home:new WhatsappHome(cameras),
 
     );
   }
